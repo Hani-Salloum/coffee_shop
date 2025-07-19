@@ -16,11 +16,11 @@ export default function FooterLinksCard({
   links,
 }: FooterLinksCardProps) {
   return (
-    <div className="rounded-2xl p-5 text-center">
+    <div className="rounded-2xl p-3 md:text-center">
       <h3 className="text-2xl font-semibold text-third mb-4 uppercase tracking-wider">
         {title}
       </h3>
-      <ul className="space-y-3 list-none text-center">
+      <ul className="space-y-3 list-none md:text-center">
         {links.map((link) => (
           <li key={link.name}>
             <Link

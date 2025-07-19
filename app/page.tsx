@@ -1,3 +1,5 @@
+import OurTeam from "@/sections/global/OurTeam";
+import FarmsSection from "@/sections/home/FarmsSection";
 import HeroSection from "@/sections/home/HeroSection";
 import TodayPicks from "@/sections/home/TodayPicks";
 import Image from "next/image";
@@ -8,6 +10,8 @@ export default function Home() {
     <Fragment>
       <HeroSection />
       <TodayPicks />
+      <FarmsSection />
+      <OurTeam />
     </Fragment>
   );
 }

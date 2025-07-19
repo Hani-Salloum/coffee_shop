@@ -7,9 +7,9 @@ export interface Barista {
     id?: number;
     name: string;
     image: string;
-    age: number;
+    age?: number;
     position: string;
     experience_years: number;
     nationality: Nationality;
-    description: string;
+    description?: string;
 }
