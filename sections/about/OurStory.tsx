@@ -13,7 +13,7 @@ function OurStory() {
           <div className="flex flex-col md:flex-row items-center gap-10">
             <div className="md:w-1/2">
               <div className='w-full h-[450px] relative rounded-3xl overflow-hidden shadow-md'>
-                <Image src={'/coffee_shop.jfif'} alt='ous story image' fill objectFit='cover' />
+                <Image src={'/coffee_shop.jpg'} alt='ous story image' fill objectFit='cover' />
               </div>
             </div>
             <div className="md:w-1/2 text-center md:text-left">

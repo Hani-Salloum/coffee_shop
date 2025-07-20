@@ -4,12 +4,12 @@ import React from 'react'
 
 function Gallery() {
   const data = [
-    { id: 1, image: '/coffee_shop.jfif' },
-    { id: 2, image: '/coffee_shop.jfif' },
-    { id: 3, image: '/coffee_shop.jfif' },
-    { id: 4, image: '/coffee_shop.jfif' },
-    { id: 5, image: '/coffee_shop.jfif' },
-    { id: 6, image: '/coffee_shop.jfif' },
+    { id: 1, image: '/coffee_shop.jpg' },
+    { id: 2, image: '/coffee_shop.jpg' },
+    { id: 3, image: '/coffee_shop.jpg' },
+    { id: 4, image: '/coffee_shop.jpg' },
+    { id: 5, image: '/coffee_shop.jpg' },
+    { id: 6, image: '/coffee_shop.jpg' },
   ]
 
   const images = data.slice(0, 6)

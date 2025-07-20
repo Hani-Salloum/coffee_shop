@@ -35,7 +35,7 @@ function TodayPicks() {
       <div className='bg-third py-24 max-md:px-5'>
         <div className='container mx-auto flex justify-between items-center gap-8 flex-col md:flex-row'>
           <div className='basis-[48%] self-stretch min-h-[300px] rounded-4xl overflow-hidden relative'>
-              <Image src={'/coffee_shop.jfif'} alt='menu img' fill objectFit='cover' /> 
+              <Image src={'/coffee_shop.jpg'} alt='menu img' fill objectFit='cover' /> 
           </div>
           <div className='basis-[48%] rounded-4xl overflow-hidden relative text-center p-20 bg-secondary'>
             <h2 className='text-primary text-3xl font-semibold tracking-wide'>What's in menu</h2>
