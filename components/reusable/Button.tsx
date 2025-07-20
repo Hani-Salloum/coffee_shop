@@ -3,16 +3,18 @@ import Link from "next/link";
 
 interface ButtonProps {
   text: string;
-  icon?: string;
+  prependIcon?: string;
+  appendIcon?: string;
   href?: string;
   onClick?: () => void;
 }
 
-export default function Button({ text, icon, href, onClick }: ButtonProps) {
+export default function Button({ text, prependIcon, appendIcon, href, onClick }: ButtonProps) {
   const buttonContent = (
     <div className="flex gap-3 items-center justify-between">
+      {prependIcon && <Icon icon={prependIcon} className="text-third size-6" />}
       <span className="text-lg font-semibold">{text}</span>
-      {icon && <Icon icon={icon} className="text-third size-6" />}
+      {appendIcon && <Icon icon={appendIcon} className="text-third size-6" />}
     </div>
   );
   return (

@@ -1,4 +1,5 @@
 import BaristaCard from '@/components/cards/BaristaCard'
+import Button from '@/components/reusable/Button'
 import SectionHeading from '@/components/reusable/SectionHeading'
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 import Link from 'next/link'
@@ -52,12 +53,12 @@ function OurTeam() {
   return (
     (
       <div className='bg-secondary py-24 max-md:px-5'>
-            <div className='container mx-auto'>
+            <div className='container mx-auto flex justify-between items-start'>
                 <SectionHeading title="Our Team" />
+                <Button text='See Full Team' appendIcon='lucide:chevron-right' href='/team' />
             </div>
           <div className='container mx-auto rounded-[40px] flex justify-between items-center gap-3 flex-col md:flex-row'>
           <ScrollArea className="container whitespace-nowrap">
-              {/* <div className='w-full grid grid-cols-1 lg:grid-cols-4 gap-8'> */}
               <div className="flex w-max space-x-7 p-4">
                   { data.map((item, index) => (
                       <div key={index} className='w-[200px]'>
@@ -65,7 +66,6 @@ function OurTeam() {
                       </div>
                   )) }
               </div>
-              {/* </div> */}
               <ScrollBar className="opacity-0" orientation="horizontal" />
           </ScrollArea>
           </div>

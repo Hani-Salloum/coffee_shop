@@ -31,18 +31,18 @@ export default function Header({ className }: HeaderProps) {
   // Set active path based on current URL
   useEffect(() => {
     // const pathname = router.pathname
-    if (pathname.endsWith("recipes")) setActivePath("/recipes");
-    else if (pathname.endsWith("categories")) setActivePath("/categories");
-    else if (pathname.endsWith("ingredients")) setActivePath("/ingredients");
-    else if (pathname.endsWith("cuisines")) setActivePath("/cuisines");
+    if (pathname.endsWith("about")) setActivePath("/about");
+    else if (pathname.endsWith("menu")) setActivePath("/menu");
+    else if (pathname.endsWith("team")) setActivePath("/team");
+    else if (pathname.endsWith("contact-us")) setActivePath("/contact-us");
     else setActivePath('/')
   }, [pathname]);
 
   const navItems = [
-    { name: "Recipes", path: "/recipes" },
-    { name: "Categories", path: "/categories" },
-    { name: "Ingredients", path: "/ingredients" },
-    { name: "Cuisines", path: "/cuisines" },
+    { name: "About", path: "/about" },
+    { name: "Menu", path: "/menu" },
+    { name: "Our Team", path: "/team" },
+    { name: "Contact Us", path: "/contact-us" },
   ];
   return (
     <header

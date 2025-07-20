@@ -9,7 +9,7 @@ function HeroSection() {
         <div className='p-20'>
           <h2 className='text-primary text-3xl font-semibold tracking-wide'>Premium dose of kaffine</h2>
           <p className='mt-5 mb-8 text-primary text-lg leading-6'>Retingiush your caffine thirst with the most premium caffine you can drain</p>
-          <Button text='See Our Menu' icon='lucide:chevron-right' href='/menu'/>
+          <Button text='See Our Menu' prependIcon='lucide:chevron-right' href='/menu'/>
         </div>
         <div className='self-end basis-1/2 flex justify-center pb-0 items-end md:justify-end'> 
           <Image src={'/hero_img.jpeg'} alt='cups' width={400} height={400} />
