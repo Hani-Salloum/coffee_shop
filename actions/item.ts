@@ -2,15 +2,20 @@ import api from '@/utils/axios';
 import { Item } from '@/types/item';
 import { ApiResponse } from '@/types/general';
 
+interface AllItemsParams {
+    search: string, category: string, min_price: number, max_price: number  
+}
+
 //dashboard
 //website
-export const getAllItems = async (): Promise<ApiResponse<Item[]>> => {
-  try {
-    const res = await api.get<Item[]>('/items');
-    return { data: res.data };
-  } catch (error: any) {
-    return { error: error?.response?.data?.message || 'Failed to fetch items' };
-  }
+export const getAllItems = async (params : AllItemsParams) => {
+  console.log(params)
+  // try {
+  //   const res = await api.get<Item[]>('/items', { params });
+  //   return { data: res.data };
+  // } catch (error: any) {
+  //   return { error: error?.response?.data?.message || 'Failed to fetch items' };
+  // }
 };
 
 //website
