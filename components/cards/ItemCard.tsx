@@ -4,16 +4,17 @@ import { Card, CardContent } from '../ui/card'
 import { Star } from 'lucide-react'
 import Image from 'next/image'
 import { Item } from '@/types/item'
+import Link from 'next/link'
 
 interface ItemCardProps {
-  layout: 'overlay' | 'default' | '' ,
+  layout?: 'overlay' | 'default' | '' ,
   data: Item
 }
 
 function ItemCard({ layout, data }: ItemCardProps ) {
   const { name, price, rate, categories, image } = data
 
-  const overlayStyle = (
+  const OverlayStyle = () => (
     <Card className="p-0 w-full max-w-md mx-auto bg-[#e7dbcf] border-none shadow-lg rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
     <CardContent className="p-0">
       <div className="relative h-72">
@@ -52,7 +53,51 @@ function ItemCard({ layout, data }: ItemCardProps ) {
     </CardContent>
   </Card>
   )
-  return overlayStyle
+
+  const DefaultStyle = () => (
+    <Card className="p-0 w-full max-w-md mx-auto bg-gradient-to-br from-white to-white border-none shadow-md rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300">
+      <CardContent className="p-0 relative">
+        <div className="h-52 overflow-hidden rounded-t-3xl">
+          <div className='w-full h-full relative'>
+            <Image src={image || "/placeholder.svg"} alt={name} fill objectFit='cover' />
+          </div>
+        </div>
+
+        {/* Floating rating badge */}
+        <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-2 rounded-full shadow-lg">
+          <div className="flex items-center gap-1">
+            <Star className="w-4 h-4 fill-[#caa378] text-[#caa378]" />
+            <span className="text-sm font-semibold text-primary">{rate}</span>
+          </div>
+        </div>
+
+        {/* Floating price tag */}
+        <div className="absolute -bottom-4 right-6 bg-primary text-third px-4 py-3 rounded-2xl shadow-lg">
+          <span className="text-lg font-bold">${price}</span>
+        </div>
+
+        <div className="p-6 pb-10">
+          <h3 className="text-xl font-bold text-primary mb-4">{name}</h3>
+
+          <div className="flex flex-wrap gap-2">
+            {categories.map((category, index) => (
+              <Badge
+                key={index}
+                className="bg-primary/10 text-primary hover:bg-primary hover:text-white text-xs px-3 py-1 rounded-full border-none"
+              >
+                {category}
+              </Badge>
+            ))}
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  )
+  return (
+    <Link href={`/menu/item/${data.id}`}>
+      { layout === 'overlay' ? <OverlayStyle /> : <DefaultStyle /> }
+    </Link>
+  )
 }
 
 export default ItemCard

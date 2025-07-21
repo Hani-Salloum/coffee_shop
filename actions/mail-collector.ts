@@ -15,9 +15,11 @@ export const getAllUserMessages = async (): Promise<ApiResponse<UserMessage[]>> 
 //website
 export const addUserMessage = async (
   data: Omit<UserMessage, 'id'>
-): Promise<ApiResponse<UserMessage>> => {
+): Promise<ApiResponse<string>> => {
   try {
-    const res = await api.post<UserMessage>('/mail-collector', data);
+    // const res = await api.post<UserMessage>('/mail-collector', data);
+    console.log(data)
+    const res = { data: 'done' }
     return { data: res.data };
   } catch (error: any) {
     return { error: error?.response?.data?.message || 'Failed to add mail' };

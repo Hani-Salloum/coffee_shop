@@ -9,5 +9,5 @@ export interface ContactUsFormPayload {
     phone: string;
     email: string;
     message: string;
-    ai_response: string;
+    ai_response?: string;
 }

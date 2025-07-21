@@ -4,6 +4,7 @@ import { Calligraffitti } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import ToastProvider from "@/utils/providers/toast-provider";
 
 const font = Calligraffitti({
   weight: '400',
@@ -27,6 +28,7 @@ export default function RootLayout({
         // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         className={`${font.className} antialiased bg-third`}
       >
+        <ToastProvider />
         <Header />
         <div className="mt-[60px]" />
         {children}
