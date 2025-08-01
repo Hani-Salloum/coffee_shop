@@ -4,4 +4,5 @@ export interface Review {
     rate: number;
     email: string;
     description: string;
+    created_at: string;
 }

@@ -2,57 +2,18 @@ import BaristaCard from '@/components/cards/BaristaCard'
 import Button from '@/components/reusable/Button'
 import SectionHeading from '@/components/reusable/SectionHeading'
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
+import { Barista } from '@/types/barista'
 import Link from 'next/link'
 import React from 'react'
 
-function OurTeam() {
-  const data = [
-    {
-      name: "Hani Rodriguez",
-      image: '/hani_salloum.jpg',
-      position: "Head Barista",
-      nationality: { code: 'italy', name: "Italian" },
-      experience_years: 8,
-    },
-    {
-      name: "Hani Rodriguez",
-      image: '/hani_salloum.jpg',
-      position: "Head Barista",
-      nationality: { code: 'italy', name: "Italian" },
-      experience_years: 8,
-    },
-    {
-      name: "Hani Rodriguez",
-      image: '/hani_salloum.jpg',
-      position: "Head Barista",
-      nationality: { code: 'italy', name: "Italian" },
-      experience_years: 8,
-    },
-    {
-      name: "Hani Rodriguez",
-      image: '/hani_salloum.jpg',
-      position: "Head Barista",
-      nationality: { code: 'italy', name: "Italian" },
-      experience_years: 8,
-    },
-    {
-      name: "Hani Rodriguez",
-      image: '/hani_salloum.jpg',
-      position: "Head Barista",
-      nationality: { code: 'italy', name: "Italian" },
-      experience_years: 8,
-    },
-    {
-      name: "Hani Rodriguez",
-      image: '/hani_salloum.jpg',
-      position: "Head Barista",
-      nationality: { code: 'italy', name: "Italian" },
-      experience_years: 8,
-    },
-  ]
+interface Props {
+  data: Array<Barista>
+}
+
+function OurTeam({ data }: Props) {
   return (
     (
-      <div className='bg-secondary py-24 max-md:px-5'>
+      <div className='bg-secondary py-24 px-5'>
             <div className='container mx-auto flex justify-between items-start'>
                 <SectionHeading title="Our Team" />
                 <Button text='See Full Team' appendIcon='lucide:chevron-right' href='/team' />

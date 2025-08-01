@@ -22,8 +22,8 @@ export default function Footer({ className }: FooterProps) {
   ]
 
   return (
-    <footer className={cn("relative overflow-hidden py-10 md:py-14 bg-primary", className)}>
-      <div className="container mx-auto px-4 relative z-10 max-md:px-5 md:bg-secondary rounded-3xl p-8 md:p-12">
+    <footer className={cn("relative overflow-hidden py-10 px-5 md:py-14 bg-primary", className)}>
+      <div className="container mx-auto relative z-10 px-5 md:bg-secondary rounded-3xl p-8 md:p-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 md:gap-8">
           {/* Left quarter - Logo and slogan */}
           <div className="md:col-span-1">

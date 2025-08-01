@@ -1,21 +1,17 @@
 import SectionHeading from '@/components/reusable/SectionHeading'
+import { GalleryImage } from '@/types/gallery'
 import Image from 'next/image'
 import React from 'react'
 
-function Gallery() {
-  const data = [
-    { id: 1, image: '/coffee_shop.jpg' },
-    { id: 2, image: '/coffee_shop.jpg' },
-    { id: 3, image: '/coffee_shop.jpg' },
-    { id: 4, image: '/coffee_shop.jpg' },
-    { id: 5, image: '/coffee_shop.jpg' },
-    { id: 6, image: '/coffee_shop.jpg' },
-  ]
+interface Props {
+  data: Array<GalleryImage>
+}
 
+function Gallery({ data }: Props) {
   const images = data.slice(0, 6)
 
   return (
-    <div className='bg-third py-24 max-md:px-5'>
+    <div className='bg-third py-24 px-5'>
           <div className='container mx-auto'>
               <SectionHeading title="Gallery" />
           </div>

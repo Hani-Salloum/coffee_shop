@@ -1,4 +1,5 @@
 import { Category } from "./category";
+import { Review } from "./review";
 
 export interface Item {
     id:  number;
@@ -7,9 +8,11 @@ export interface Item {
     price: number;
     ingredients?:  Array<string>;
     rate: number;
+    avg_rating: number;
     sizes?: Array<string>;
     categories: Array<string> ;
     related_items?:  Array<Item>;
     description?: string;
     origin_story?: string;
+    reviews: Array<Review>
 }

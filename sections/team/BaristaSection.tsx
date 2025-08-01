@@ -24,9 +24,9 @@ function BaristaSection({ data, index }: BaristaSectionProps) {
               <div className='w-[300px] h-[300px] relative rounded-3xl overflow-hidden shadow-md border-4 border-secondary/50'>
                 <Image src={image || "/placeholder.svg"} alt={name} fill objectFit='cover' objectPosition='top' />
               </div>
-              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-20 h-20 bg-primary rounded-full flex items-center justify-center shadow-lg border-4 border-white">
+              <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/3 w-20 h-20 bg-primary rounded-full flex items-center justify-center shadow-lg border-4 border-white">
                 <Icon icon={`twemoji:flag-${nationality.code}`} className='size-8 text-secondary' />
-              </div>
+              </div>  
             </div>
 
             <div className="md:w-2/3 text-center md:text-left pt-8 md:pt-0">

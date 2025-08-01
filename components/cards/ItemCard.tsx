@@ -5,6 +5,7 @@ import { Star } from 'lucide-react'
 import Image from 'next/image'
 import { Item } from '@/types/item'
 import Link from 'next/link'
+import { baseURL } from '@/utils/axios'
 
 interface ItemCardProps {
   layout?: 'overlay' | 'default' | '' ,
@@ -13,13 +14,14 @@ interface ItemCardProps {
 
 function ItemCard({ layout, data }: ItemCardProps ) {
   const { name, price, rate, categories, image } = data
+  const imagePath = baseURL + image
 
   const OverlayStyle = () => (
     <Card className="p-0 w-full max-w-md mx-auto bg-[#e7dbcf] border-none shadow-lg rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
     <CardContent className="p-0">
       <div className="relative h-72">
         <div className='relative w-full h-full'>
-          <Image src={'/hero_img.jpeg'} alt={name} fill objectFit='cover' />
+          <Image src={imagePath} alt={name} fill objectFit='cover' />
         </div>
 
         {/* Gradient overlay */}
@@ -59,7 +61,7 @@ function ItemCard({ layout, data }: ItemCardProps ) {
       <CardContent className="p-0 relative">
         <div className="h-52 overflow-hidden rounded-t-3xl">
           <div className='w-full h-full relative'>
-            <Image src={image || "/placeholder.svg"} alt={name} fill objectFit='cover' />
+            <Image src={imagePath || "/placeholder.svg"} alt={name} fill objectFit='cover' />
           </div>
         </div>
 

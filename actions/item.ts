@@ -8,21 +8,52 @@ interface AllItemsParams {
 
 //dashboard
 //website
-export const getAllItems = async (params : AllItemsParams) => {
-  console.log(params)
-  // try {
-  //   const res = await api.get<Item[]>('/items', { params });
-  //   return { data: res.data };
-  // } catch (error: any) {
-  //   return { error: error?.response?.data?.message || 'Failed to fetch items' };
-  // }
+// export const getAllItems = async (params : AllItemsParams) => {
+export const getAllItems = async (): Promise<ApiResponse<Item[]>> => {
+  // console.log(params)
+  // https://tatianatay.pythonanywhere.com/coffeeshop/item/
+  try {
+    // const res = await api.get<Item[]>('/item', { params });
+    const res = await api.get<Item[]>('/item/');
+    console.log(res.data)
+    return { data: res.data };
+  } catch (error: any) {
+    console.log(error?.response?.data?.message)
+    return { error: error?.response?.data?.message || 'Failed to fetch items' };
+  }
 };
 
 //website
-export const getTodayPicks = async (): Promise<ApiResponse<Item[]>> => {
+// export const getTodayPicks = async (): Promise<ApiResponse<Item[]>> => {
+export const getTodayPicks = async () => {
   try {
-    const res = await api.get<Item[]>('/today-picks');
-    return { data: res.data };
+    // const res = await api.get<Item[]>('/today-picks');
+    return { data: [
+      {
+        id: 1,
+        name: "Premium Espresso Blend",
+        price: 24.99,
+        rate: 4.8,
+        categories: ["Premium", "Espresso", "Organic"],
+        image: '/hero_img.jpeg'
+      },
+      {
+        id: 1,
+        name: "Premium Espresso Blend",
+        price: 24.99,
+        rate: 4.8,
+        categories: ["Premium", "Espresso", "Organic"],
+        image: '/hero_img.jpeg'
+      },
+      {
+        id: 1,
+        name: "Premium Espresso Blend",
+        price: 24.99,
+        rate: 4.8,
+        categories: ["Premium", "Espresso", "Organic"],
+        image: '/hero_img.jpeg'
+      }
+    ]};
   } catch (error: any) {
     return { error: error?.response?.data?.message || 'Failed to fetch items' };
   }
@@ -32,9 +63,11 @@ export const getTodayPicks = async (): Promise<ApiResponse<Item[]>> => {
 //website
 export const getItemById = async (id: string): Promise<ApiResponse<Item>> => {
   try {
-    const res = await api.get<Item>(`/items/${id}`);
+    const res = await api.get<Item>(`/item/${id}/`);
+    console.log(res.data)
     return { data: res.data };
   } catch (error: any) {
+    console.log(error?.response?.data?.message)
     return { error: error?.response?.data?.message || 'Failed to fetch item' };
   }
 };

@@ -15,7 +15,7 @@ interface Props {
 function MainItemSection({ data }: Props) {
   return (
     <Fragment>
-      <ItemImage image={data.image} name={data.name} price={data.price} rate={data.rate} categories={data.categories} sizes={data.sizes} />
+      <ItemImage number_rating={data.avg_rating} image={data.image} name={data.name} price={data.price} rate={data.avg_rating} categories={data.categories} sizes={data.sizes} />
       <ItemDescription ingredients={data.ingredients ?? []} description={data.description ?? ''} />
       <ItemOriginStory origin_story={data.origin_story} />
     </Fragment>

@@ -5,7 +5,7 @@ import React from 'react'
 
 function ContactUsSection() {
   return (
-    <div className='bg-primary pt-0 max-md:px-5'>
+    <div className='bg-primary pt-0 px-5'>
       <div className="bg-gradient-to-b from-primary to-primary py-12 px-4 flex items-center justify-center">
         <Card className="p-0 w-full max-w-2xl mx-auto bg-third border-none shadow-lg rounded-3xl overflow-hidden">
           <CardContent className="p-8 md:p-12 text-center">

@@ -10,7 +10,7 @@ interface Props {
 
 function RelatedItemsSection({ data }: Props) {
   return (
-    <div className="pg-third px-5 py-24">
+    <div className="bg-secondary px-5 py-24">
       <section className="container">
         <SectionHeading title="You Might Also Like" align="center" />
         <div className="relative">

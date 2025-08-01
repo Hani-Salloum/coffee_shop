@@ -1,38 +1,17 @@
 import FarmCard from '@/components/cards/FarmCard'
 import SectionHeading from '@/components/reusable/SectionHeading'
+import { Farm } from '@/types/farm'
 import Link from 'next/link'
 import React from 'react'
 
-function FarmsSection() {
-  const data = [
-      {
-        id: 1,
-        name: 'Brazil',
-        image: '/guatemala.jpg',
-        region: 'Brazil, Sao Paolo' 
-      },
-      {
-        id: 2,
-        name: 'Guatemala',
-        image: '/guatemala.jpg',
-        region: 'Guatemala, Sao Paolo' 
-      },
-      {
-        id: 3,
-        name: 'Ethiopia',
-        image: '/guatemala.jpg',
-        region: 'Ethiopia, Sao Paolo' 
-      },
-      {
-        id: 4,
-        name: 'Kenya',
-        image: '/guatemala.jpg',
-        region: 'Kenya, Sao Paolo' 
-      },
-  ] 
+interface Props {
+  data: Array<Farm>
+}
+
+function FarmsSection({ data }: Props) {
 
   return (
-    <div className='bg-primary py-24 max-md:px-5'>
+    <div className='bg-primary py-24 px-5'>
           <div className='container mx-auto'>
               <SectionHeading title="Our Farms" color='third' />
           </div>

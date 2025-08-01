@@ -15,6 +15,7 @@ import { Category } from "@/types/category"
 import { getAllItems } from "@/actions/item"
 import useDebounce from "@/utils/hooks/useDebounce"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
+import { Item } from "@/types/item"
 
 interface MenuItem {
   id: string
@@ -118,10 +119,16 @@ const allCategories = [
   { id: 7, name: 'half caf' },
   { id: 8, name: 'decaf' },
 ]
-const maxPrice = Math.max(...menuItems.map((item) => item.price))
-const minPrice = Math.min(...menuItems.map((item) => item.price))
 
-export default function ItemsGridSection() {
+interface Props {
+  data: Array<Item>
+}
+
+export default function ItemsGridSection({ data }: Props) {
+  const [ menuItems, setMenuItems ] = useState(data)
+  const maxPrice = Math.max(...menuItems.map((item) => item.price))
+  const minPrice = Math.min(...menuItems.map((item) => item.price))
+
   const [searchTerm, setSearchTerm] = useState("")
   const debouncedSearchTerm = useDebounce(searchTerm, 800);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
@@ -139,15 +146,17 @@ export default function ItemsGridSection() {
   }
   
   const getData = async () => {
-    const res = await getAllItems({
-      search: debouncedSearchTerm,
-      category: categoriesIds.join(','),
-      min_price: priceRange[0],
-      max_price: priceRange[1],
-    })
-  }
+    const res = await getAllItems()
+    //@ts-ignore
+    setMenuItems(res.data)
 
-  const filteredItems = menuItems
+    // const res = await getAllItems({
+    //   search: debouncedSearchTerm,
+    //   category: categoriesIds.join(','),
+    //   min_price: priceRange[0],
+    //   max_price: priceRange[1],
+    // })
+  }
 
   useEffect(() => {
     getData()
@@ -348,9 +357,9 @@ export default function ItemsGridSection() {
 
           {/* Items Grid Section */}
           <div className="lg:col-span-3">
-            {filteredItems.length > 0 ? (
+            {menuItems.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredItems.map((item) => (
+                {menuItems.map((item) => (
                   <div
                     key={item.id}
                     className="transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl"
