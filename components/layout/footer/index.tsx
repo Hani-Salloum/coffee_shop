@@ -4,8 +4,6 @@ import type React from "react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
-import SocialLinks from "./social-links"
-import NewsletterForm from "./newsletter-form"
 import FooterLinksCard from "./footer-links-card"
 
 interface FooterProps {

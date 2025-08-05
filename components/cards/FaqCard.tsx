@@ -20,7 +20,6 @@ function FaqCard({ question, answer, value }: FaqCardProps) {
               {question}
             </div>
           </AccordionTrigger>
-          {/* Adjusted padding: pr-6 for right padding, keeping pl-6 for left, py-4 for vertical */}
           <AccordionContent className="pl-6 pr-6 py-4 text-lg text-primary/80 bg-white">{answer}</AccordionContent>
         </AccordionItem>
       </CardContent>

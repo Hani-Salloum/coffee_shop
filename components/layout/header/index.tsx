@@ -30,7 +30,6 @@ export default function Header({ className }: HeaderProps) {
 
   // Set active path based on current URL
   useEffect(() => {
-    // const pathname = router.pathname
     if (pathname.endsWith("about")) setActivePath("/about");
     else if (pathname.endsWith("menu")) setActivePath("/menu");
     else if (pathname.endsWith("team")) setActivePath("/team");

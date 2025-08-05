@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React, { useState } from "react";
 import { Card, CardContent } from "../ui/card";
@@ -16,46 +16,50 @@ import { Textarea } from "../ui/textarea";
 import Button from "../reusable/Button";
 
 const schema = z.object({
-    email: z.email('Email is required'),
-    description: z.string().min(20, "Description must be at least 20 characters"),
-})
-  
-type FD = z.infer<typeof schema>
+  email: z.email("Email is required"),
+  description: z.string().min(20, "Description must be at least 20 characters"),
+});
+
+type FD = z.infer<typeof schema>;
 
 interface Props {
-    itemId: string
+  itemId: string;
 }
 
 function AddReviewForm({ itemId }: Props) {
-    const [rate, setRate] = useState(0)
-  const [hoverRate, setHoverRate] = useState(0)
+  const [rate, setRate] = useState(0);
+  const [hoverRate, setHoverRate] = useState(0);
 
-    const {
-        register,
-        handleSubmit,
-        reset,
-        formState: { errors, isSubmitting },
-      } = useForm({
-        resolver: zodResolver(schema),
-        defaultValues: {
-          email: '',
-          description: '',
-        },
-      })
-    
-      const onSubmit = async (data: FD) => {
-        try {
-            const res = await addReview({...data, rate, item_id: Number(itemId)} as Review)
-            if(res.error) {
-              toast.error(res.error)
-            } else {
-              toast.success('Your Review is submitted successfully')
-            }
-            reset()
-        } catch (error) {
-            toast.error('Something went wrong')
-        }
-      };
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    resolver: zodResolver(schema),
+    defaultValues: {
+      email: "",
+      description: "",
+    },
+  });
+
+  const onSubmit = async (data: FD) => {
+    try {
+      const res = await addReview({
+        ...data,
+        rate,
+        item_id: Number(itemId),
+      } as Review);
+      if (res.error) {
+        toast.error(res.error);
+      } else {
+        toast.success("Your Review is submitted successfully");
+      }
+      reset();
+    } catch (error) {
+      toast.error("Something went wrong");
+    }
+  };
 
   return (
     <Card className="bg-white rounded-3xl shadow-lg p-8 md:p-12 border-0 mb-8">
@@ -99,13 +103,13 @@ function AddReviewForm({ itemId }: Props) {
 
           {/* Email Input */}
           <div>
-          <HInput
-                        label='Your Email'
-                        placeholder='you@example.com'
-                        className='w-full border border-secondary/50 rounded-lg px-4 py-3 bg-white text-primary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors'
-                        {...register("email")}
-                        error={errors.email ? errors.email.message : ''}
-                    />
+            <HInput
+              label="Your Email"
+              placeholder="you@example.com"
+              className="w-full border border-secondary/50 rounded-lg px-4 py-3 bg-white text-primary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors"
+              {...register("email")}
+              error={errors.email ? errors.email.message : ""}
+            />
           </div>
 
           {/* Description Textarea */}
@@ -117,18 +121,22 @@ function AddReviewForm({ itemId }: Props) {
               Your Review
             </Label>
             <Textarea
-                id="form-message"
-                placeholder="Tell us about your experience with this item..."
-                rows={10}
-                { ...register('description') }
-                className="w-full border mb-3 border-secondary/50 rounded-lg px-4 py-3 bg-white text-primary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors resize-y"
-              />
-              {errors.description && errors.description.message && <p className="text-sm text-red-500 bg-third py-1 px-2 rounded-3xl w-fit">{errors.description.message}</p>}
-              {/* className="w-full border border-[#e7dbcf] rounded-xl px-4 py-3 bg-white text-primary focus:border-secondary focus:ring-1 focus:ring-secondary/20 transition-colors resize-y" */}
+              id="form-message"
+              placeholder="Tell us about your experience with this item..."
+              rows={10}
+              {...register("description")}
+              className="w-full border mb-3 border-secondary/50 rounded-lg px-4 py-3 bg-white text-primary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors resize-y"
+            />
+            {errors.description && errors.description.message && (
+              <p className="text-sm text-red-500 bg-third py-1 px-2 rounded-3xl w-fit">
+                {errors.description.message}
+              </p>
+            )}
+            {/* className="w-full border border-[#e7dbcf] rounded-xl px-4 py-3 bg-white text-primary focus:border-secondary focus:ring-1 focus:ring-secondary/20 transition-colors resize-y" */}
           </div>
 
           <div className="flex justify-end mt-8">
-            <Button text='Submit Review' type='submit' />
+            <Button text="Submit Review" type="submit" />
           </div>
         </form>
       </CardContent>

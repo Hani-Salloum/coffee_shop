@@ -27,7 +27,6 @@ export default function FooterLinksCard({
               href={link.href}
               className="text-third hover:text-primary  transition-all duration-200 text-lg"
             >
-              {/* <span className="w-1.5 h-1.5 rounded-full bg-zinc-300 dark:bg-zinc-600 group-hover:bg-primary mr-2 transition-all duration-200"></span> */}
               {link.name}
             </Link>
           </li>
