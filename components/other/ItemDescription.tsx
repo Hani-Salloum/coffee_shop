@@ -1,8 +1,9 @@
+import { Ingredient } from '@/types/ingredient'
 import { Leaf } from 'lucide-react'
 import React from 'react'
 
 interface Props {
-  ingredients: Array<string>
+  ingredients: Array<Ingredient>
   description: string
 }
 
@@ -18,9 +19,9 @@ function ItemDescription({ ingredients, description }: Props) {
               <h2 className="text-3xl font-bold text-primary mb-8">What's Inside</h2>
               <ul className="space-y-4">
                 {ingredients.map((ingredient, index) => (
-                  <li key={index} className="flex items-center gap-4 text-lg text-primary">
+                  <li key={ingredient.id} className="flex items-center gap-4 text-lg text-primary">
                     <Leaf className="w-6 h-6 text-secondary flex-shrink-0" />
-                    <span>{ingredient}</span>
+                    <span>{ingredient.name}</span>
                   </li>
                 ))}
               </ul>

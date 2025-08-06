@@ -8,15 +8,41 @@ interface AllItemsParams {
 
 //dashboard
 //website
-// export const getAllItems = async (params : AllItemsParams) => {
-export const getAllItems = async (): Promise<ApiResponse<Item[]>> => {
+// export const getAllItems = async (): Promise<ApiResponse<Item[]>> => {
+export const getAllItems = async () => {
   // console.log(params)
   // https://tatianatay.pythonanywhere.com/coffeeshop/item/
   try {
     // const res = await api.get<Item[]>('/item', { params });
-    const res = await api.get<Item[]>('/item/');
-    console.log(res.data)
-    return { data: res.data };
+    // const res = await api.get<Item[]>('/item/');
+    // console.log(res.data)
+    // return { data: res.data };
+    return { data: [
+      {
+        id: 1,
+        name: "Premium Espresso Blend",
+        price: 24.99,
+        rate: 4.8,
+        categories: [{id: 1, name: "Premium"}, {id: 2, name: "Espresso"}, {id: 3, name: "Organic"}],
+        image: '/hero_img.jpeg'
+      },
+      {
+        id: 2,
+        name: "Premium Espresso Blend",
+        price: 24.99,
+        rate: 4.8,
+        categories: [{id: 1, name: "Premium"}, {id: 2, name: "Espresso"}, {id: 3, name: "Organic"}],
+        image: '/hero_img.jpeg'
+      },
+      {
+        id: 3,
+        name: "Premium Espresso Blend",
+        price: 24.99,
+        rate: 4.8,
+        categories: [{id: 1, name: "Premium"}, {id: 2, name: "Espresso"}, {id: 3, name: "Organic"}],
+        image: '/hero_img.jpeg'
+      }
+    ]};
   } catch (error: any) {
     console.log(error?.response?.data?.message)
     return { error: error?.response?.data?.message || 'Failed to fetch items' };
@@ -34,7 +60,7 @@ export const getTodayPicks = async () => {
         name: "Premium Espresso Blend",
         price: 24.99,
         rate: 4.8,
-        categories: ["Premium", "Espresso", "Organic"],
+        categories: [{id: 1, name: "Premium"}, {id: 2, name: "Espresso"}, {id: 3, name: "Organic"}],
         image: '/hero_img.jpeg'
       },
       {
@@ -42,7 +68,7 @@ export const getTodayPicks = async () => {
         name: "Premium Espresso Blend",
         price: 24.99,
         rate: 4.8,
-        categories: ["Premium", "Espresso", "Organic"],
+        categories: [{id: 1, name: "Premium"}, {id: 2, name: "Espresso"}, {id: 3, name: "Organic"}],
         image: '/hero_img.jpeg'
       },
       {
@@ -50,7 +76,7 @@ export const getTodayPicks = async () => {
         name: "Premium Espresso Blend",
         price: 24.99,
         rate: 4.8,
-        categories: ["Premium", "Espresso", "Organic"],
+        categories: [{id: 1, name: "Premium"}, {id: 2, name: "Espresso"}, {id: 3, name: "Organic"}],
         image: '/hero_img.jpeg'
       }
     ]};

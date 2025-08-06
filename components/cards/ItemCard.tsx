@@ -14,7 +14,8 @@ interface ItemCardProps {
 
 function ItemCard({ layout, data }: ItemCardProps ) {
   const { name, price, rate, categories, image } = data
-  const imagePath = baseURL + image
+  // const imagePath = baseURL + image
+  const imagePath =  image
 
   const OverlayStyle = () => (
     <Card className="p-0 w-full max-w-md mx-auto bg-[#e7dbcf] border-none shadow-lg rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
@@ -44,7 +45,7 @@ function ItemCard({ layout, data }: ItemCardProps ) {
                   key={index}
                   className="bg-white/20 text-white hover:bg-white/30 text-xs px-3 py-1 rounded-full border-none"
                 >
-                  {category}
+                  {category.name}
                 </Badge>
               ))}
             </div>
@@ -87,7 +88,7 @@ function ItemCard({ layout, data }: ItemCardProps ) {
                 key={index}
                 className="bg-primary/10 text-primary hover:bg-primary hover:text-white text-xs px-3 py-1 rounded-full border-none"
               >
-                {category}
+                {category.name}
               </Badge>
             ))}
           </div>

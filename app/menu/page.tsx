@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 import { getAllItems } from "@/actions/item";
 import TodayPicks from "@/sections/home/TodayPicks";
 import ItemsGridSection from "@/sections/menu/ItemsGridSection";
